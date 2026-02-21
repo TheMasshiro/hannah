@@ -20,7 +20,7 @@ canvas {
     position: absolute;
     background-color: #556B2F;
     border: 2px solid #556B2F;
-    color: #fff;
+    color: #556B2F;
     cursor: pointer;
     padding: 8px 16px;
     font-size: clamp(12px, 3vw, 14px);
@@ -35,7 +35,7 @@ canvas {
 
 #nextButton:hover {
     background-color: #3d4620;
-    color: #eee;
+    color: #556B2F;
 }
 
 #valentinesButton {
@@ -43,7 +43,7 @@ canvas {
     position: absolute;
     background-color: #556B2F;
     border: 2px solid #556B2F;
-    color: #fff;
+    color: #556B2F;
     cursor: pointer;
     padding: 12px 24px;
     font-size: clamp(14px, 4vw, 18px);
@@ -59,7 +59,7 @@ canvas {
 
 #valentinesButton:hover {
     background-color: #3d4620;
-    color: #eee;
+    color: #556B2F;
 }
 
 @media (max-width: 768px) {
