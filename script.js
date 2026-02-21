@@ -11,7 +11,6 @@ function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// Initialize stars with random opacity values
 for (var i = 0; i < stars; i++) {
     var x = Math.random() * canvas.offsetWidth;
     var y = Math.random() * canvas.offsetHeight;
@@ -49,6 +48,14 @@ function updateStars() {
 }
 
 const button = document.getElementById("valentinesButton");
+const nextButton = document.getElementById("nextButton");
+
+nextButton.addEventListener("click", () => {
+  frameNumber = 3000;
+  opacity = 1;
+  secondOpacity = 1;
+  thirdOpacity = 1;
+});
 
 button.addEventListener("click", () => {
   if (button.textContent === "Click Me! ❤") {
@@ -63,7 +70,6 @@ button.addEventListener("click", () => {
         }
       })
       .catch(error => {
-        // Handle network errors or other issues
         console.error('Error:', error);
         button.textContent = "Error 😞";
       });
@@ -77,13 +83,12 @@ function drawTextWithLineBreaks(lines, x, y, fontSize, lineHeight) {
 }
 
 function drawText() {
-    var fontSize = Math.min(30, window.innerWidth / 24); // Adjust font size based on screen width
+    var fontSize = Math.min(30, window.innerWidth / 24);
     var lineHeight = 8;
 
     context.font = fontSize + "px Comic Sans MS";
     context.textAlign = "center";
     
-    // glow effect
     context.shadowColor = "rgba(45, 45, 255, 1)";
     context.shadowBlur = 8;
     context.shadowOffsetX = 0;
@@ -94,21 +99,19 @@ function drawText() {
         context.fillText("everyday day I cannot believe how lucky I am", canvas.width/2, canvas.height/2);
         opacity = opacity + 0.01;
     }
-    //fades out the text by decreasing the opacity
     if(frameNumber >= 250 && frameNumber < 500){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
         context.fillText("everyday day I cannot believe how lucky I am", canvas.width/2, canvas.height/2);
         opacity = opacity - 0.01;
     }
 
-    //needs this if statement to reset the opacity before next statement on canvas
     if(frameNumber == 500){
         opacity = 0;
     }
     if(frameNumber > 500 && frameNumber < 750){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
 
-        if (window.innerWidth < 600) {           //shortens long sentence for mobile screens
+        if (window.innerWidth < 600) {
             drawTextWithLineBreaks(["amongst trillions and trillions of stars,", "over billions of years"], canvas.width / 2, canvas.height / 2, fontSize, lineHeight);
         } else {
             context.fillText("amongst trillions and trillions of stars, over billions of years", canvas.width/2, canvas.height/2);
@@ -218,11 +221,10 @@ function drawText() {
         button.style.display = "block";
     }   
 
-     // Reset the shadow effect after drawing the text
-     context.shadowColor = "transparent";
-     context.shadowBlur = 0;
-     context.shadowOffsetX = 0;
-     context.shadowOffsetY = 0;
+    context.shadowColor = "transparent";
+    context.shadowBlur = 0;
+    context.shadowOffsetX = 0;
+    context.shadowOffsetY = 0;
 }
 
 function draw() {
