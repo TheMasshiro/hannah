@@ -45,6 +45,7 @@ var sentences = [
   "I love you on the easy days.",
   "I love you on the complicated ones.",
   "Happy monthsary, my love.",
+  "I love you so much, my Hannah Ella Marie Galang",
 ];
 
 var currentIndex = 0;
