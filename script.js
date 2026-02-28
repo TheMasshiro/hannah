@@ -23,6 +23,7 @@ for (var i = 0; i < stars; i++) {
 
 var sentences = [
   "Hi, my love.",
+  "My future wife.",
   "Happy monthsary to us.",
   "Thank you for coming back to me",
   "Thank you for staying.",
@@ -37,7 +38,7 @@ var sentences = [
   "I still want to grow with you.",
   "I still want to build something deeper and stronger with you.",
   "Thank you for your patience.",
-  "Thank you for your effort.",
+  "Thank you for your efforts.",
   "Thank you for your love.",
   "I am willing to keep working on myself too, for us.",
   "I love you so much.",
