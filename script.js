@@ -24,6 +24,7 @@ for (var i = 0; i < stars; i++) {
 var sentences = [
   "Hi, my love.",
   "Happy monthsary to us.",
+  "Thank you for coming back to me",
   "Thank you for staying.",
   "Thank you for choosing me every day.",
   "Thank you for loving me even when I am not at my best.",
