@@ -25,7 +25,7 @@ var sentences = [
   "Hi, my love.",
   "My future wife.",
   "Happy monthsary to us.",
-  "Thank you for coming back to me",
+  "Thank you for coming back to me.",
   "Thank you for staying.",
   "Thank you for choosing me every day.",
   "Thank you for loving me even when I am not at my best.",
@@ -45,7 +45,7 @@ var sentences = [
   "I love you on the easy days.",
   "I love you on the complicated ones.",
   "Happy monthsary, my love.",
-  "I love you so much, my Hannah Ella Marie Galang",
+  "I love you so much, my Hannah Ella Marie Galang.",
 ];
 
 var currentIndex = 0;
