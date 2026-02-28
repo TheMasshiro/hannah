@@ -11,25 +11,20 @@ function getRandom(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function createStars() {
-  starArray = [];
-  for (var i = 0; i < stars; i++) {
-    var x = Math.random() * canvas.width;
-    var y = Math.random() * canvas.height;
-    var radius = Math.random() * 1.5 + 0.3;
-    var hue = colorrange[getRandom(0, colorrange.length - 1)];
-    var sat = getRandom(60, 100);
-    var opacity = Math.random();
-    starArray.push({ x, y, radius, hue, sat, opacity });
-  }
+for (var i = 0; i < stars; i++) {
+  var x = Math.random() * canvas.offsetWidth;
+  var y = Math.random() * canvas.offsetHeight;
+  var radius = Math.random() * 1.2;
+  var hue = colorrange[getRandom(0, colorrange.length - 1)];
+  var sat = getRandom(50, 100);
+  var opacity = Math.random();
+  starArray.push({ x, y, radius, hue, sat, opacity });
 }
-
-createStars();
 
 var sentences = [
   "Hi, my love.",
   "Happy monthsary to us.",
-  "Thank you for coming back to me.",
+  "Thank you for coming back to me",
   "Thank you for staying.",
   "Thank you for choosing me every day.",
   "Thank you for loving me even when I am not at my best.",
@@ -85,31 +80,30 @@ function drawStars() {
   for (var i = 0; i < stars; i++) {
     var star = starArray[i];
     context.beginPath();
-    context.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+    context.arc(star.x, star.y, star.radius, 0, 360);
     context.fillStyle =
-      "hsla(" + star.hue + ", " + star.sat + "%, 95%, " + star.opacity + ")";
+      "hsla(" + star.hue + ", " + star.sat + "%, 88%, " + star.opacity + ")";
     context.fill();
   }
 }
 
 function updateStars() {
   for (var i = 0; i < stars; i++) {
-    if (Math.random() > 0.98) {
+    if (Math.random() > 0.99) {
       starArray[i].opacity = Math.random();
     }
   }
 }
 
 function drawText() {
-  var fontSize = Math.min(32, window.innerWidth / 22);
+  var fontSize = Math.min(30, window.innerWidth / 24);
 
   context.font = fontSize + "px Comic Sans MS";
   context.textAlign = "center";
-  context.textBaseline = "middle";
   context.shadowColor = "rgba(45, 255, 45, 1)";
-  context.shadowBlur = 10;
+  context.shadowBlur = 8;
 
-  context.fillStyle = "rgba(45, 255, 45," + opacity + ")";
+  context.fillStyle = `rgba(45, 255, 45, ${opacity})`;
   context.fillText(
     sentences[currentIndex],
     canvas.width / 2,
@@ -125,22 +119,18 @@ function drawText() {
 }
 
 function draw() {
-  context.fillStyle = "black";
-  context.fillRect(0, 0, canvas.width, canvas.height);
-
+  context.clearRect(0, 0, canvas.width, canvas.height);
   drawStars();
   updateStars();
   drawText();
-
-  requestAnimationFrame(draw);
+  window.requestAnimationFrame(draw);
 }
 
 window.addEventListener("resize", function () {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  createStars();
 });
 
 prevButton.style.display = "none";
 
-requestAnimationFrame(draw);
+window.requestAnimationFrame(draw);
